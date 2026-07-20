@@ -1,4 +1,9 @@
+# Environment and secrets
 .env
+.env.*
+!.env.example
+
+# Python
 .venv/
 __pycache__/
 *.py[cod]
@@ -6,44 +11,35 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .pre-commit-cache/
-.docker-config/
-.tmp/
+*.egg-info/
+
+# JavaScript
+node_modules/
+**/node_modules/
+*.tsbuildinfo
+
+# Build and coverage output
+dist/
+**/dist/
+build/
+**/build/
+coverage/
+**/coverage/
 .coverage
 coverage.xml
 htmlcov/
-dist/
-*.tsbuildinfo
-build/
-*.egg-info/
+
+# Local runtime state
+.tmp/
+.docker-config/
 *.db
+*.db-wal
+*.db-shm
 *.sqlite*
-.env.*
-!.env.example
+*.log
+
+# Editors
 .idea/
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
-node_modules/
-**/node_modules/
-
-dist/
-**/dist/
-
-build/
-**/build/
-
-coverage/
-**/coverage/
-
-.venv/
-__pycache__/
-.pytest_cache/
-
-.env
-.env.*
-!.env.example
-
-*.db
-*.db-wal
-*.db-shm
-*.log
