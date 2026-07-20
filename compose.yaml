@@ -1,0 +1,57 @@
+name: aegisx
+services:
+  postgres:
+    image: postgres:17.5-alpine3.22
+    environment:
+      POSTGRES_DB: aegisx
+      POSTGRES_USER: aegisx
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-development-only}
+    volumes: ["postgres-data:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aegisx -d aegisx"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+  redis:
+    image: redis:8.0.3-alpine3.21
+    command: ["redis-server", "--appendonly", "yes", "--save", "60", "1"]
+    volumes: ["redis-data:/data"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+  api:
+    build: {context: ., dockerfile: Dockerfile}
+    environment:
+      AEGISX_ENVIRONMENT: development
+      AEGISX_DATABASE_URL: postgresql+psycopg://aegisx:${POSTGRES_PASSWORD:-local-development-only}@postgres:5432/aegisx
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 12
+      start_period: 10s
+    ports: ["127.0.0.1:${AEGISX_API_PORT:-8000}:8000"]
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+  web:
+    build: {context: ./apps/web, dockerfile: Dockerfile}
+    depends_on:
+      api: {condition: service_healthy}
+    ports: ["127.0.0.1:${AEGISX_WEB_PORT:-8080}:8080"]
+    read_only: true
+    tmpfs: ["/var/cache/nginx:mode=1777", "/var/run:mode=1777"]
+    restart: unless-stopped
+    security_opt: ["no-new-privileges:true"]
+volumes:
+  postgres-data:
+  redis-data:

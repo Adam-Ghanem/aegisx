@@ -1,0 +1,5 @@
+const navigation = ["Overview", "Alerts", "Incidents", "Event explorer", "Assets", "Identities", "Detections", "Audit logs", "Administration"];
+
+export function App() {
+  return <div className="shell"><aside aria-label="Primary navigation"><div className="brand">AegisX <span>Security Operations</span></div><nav>{navigation.map((item, index) => <button key={item} type="button" aria-current={index === 0 ? "page" : undefined} disabled={index !== 0}>{item}</button>)}</nav></aside><main><header><button type="button" aria-label="Open command palette" disabled>Search or run a command <kbd>Ctrl K</kbd></button><span>System health: connecting</span></header><section aria-labelledby="foundation-title"><p className="eyebrow">Platform foundation</p><h1 id="foundation-title">Secure SOC workspace</h1><p>The authenticated application shell is ready for Phase 2 workflows. Operational pages remain disabled until their backend APIs exist.</p><div className="state" role="status"><h2>No security data yet</h2><p>Sources, events, detections, and alerts are intentionally deferred to Phase 2.</p></div></section></main></div>;
+}

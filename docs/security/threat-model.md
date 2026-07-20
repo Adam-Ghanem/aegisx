@@ -100,3 +100,9 @@ Severity decreases when required attacker control does not exist or impact is ef
 
 Repository: C:\Users\adamg\Desktop\aegisx
 Version: phase0-design-baseline-2026-07-20
+
+## Phase 1 implementation impact
+
+Phase 1 introduces first-party password authentication, signed access tokens, rotating opaque refresh tokens, shared PostgreSQL tenant data, bounded Redis use, and a browser shell. New material threats are credential stuffing, refresh-token replay, signing-key compromise, cross-organization role joins, pooled database context leakage, browser token theft, and dependency compromise.
+
+Implemented controls include memory-hard salted password hashing, generic authentication failures, fixed-algorithm token validation, hashed refresh-token storage with family revocation on replay, tenant-first deny-by-default policy evaluation, composite tenant relationships, safe audit metadata, explicit CORS/security headers, fail-closed production keys, structured content-free request logs, pinned dependencies, and security/dependency tests. Authentication rate limiting, MFA enrollment, password reset/email verification completion, PostgreSQL RLS deployment roles, asymmetric signing-key rotation, and browser session storage policy remain release-blocking production-hardening work and are documented limitations rather than claimed controls.

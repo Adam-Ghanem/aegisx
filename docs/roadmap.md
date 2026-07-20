@@ -1,40 +1,37 @@
 # Roadmap
 
-## Phase 0 — Foundation (current)
+## Phase 0 — Foundation
 
-Approve product requirements, architecture, models, security boundaries, event/storage/detection designs, quality/operations plans, risks, and responsibilities. Exit requires cross-document consistency and sponsor approval. No application code is included.
+Approve product requirements, architecture, domain language, security boundaries, quality plans, risks, and responsibilities. No runtime-control claim is made by Phase 0 documents.
 
-## Phase 1 — Walking skeleton
+## Phase 1 — Secure control-plane foundation
 
-- Record ADRs for language/framework, cloud, identity, queue, metadata DB, event store, and object store.
-- Establish repository standards, CI, environments, secrets, and dependency policy.
-- Implement tenant/membership authorization and audit foundation.
-- Prove one source through durable ingest, normalization, one rule, alert, and query.
-- Demonstrate two-tenant isolation, idempotency, and basic telemetry.
+- Establish the modular-monolith monorepo, CI, environments, configuration, dependency policy, PostgreSQL, and bounded Redis use.
+- Implement first-party authentication, refresh rotation and revocation, Organization and Workspace tenancy, memberships, deny-by-default authorization, and audit.
+- Demonstrate two-organization and cross-workspace isolation, authentication replay resistance, policy coverage, migrations, and basic telemetry.
+- Define extension ports without implementing ingestion or SOC domain workflows.
 
-Exit: production-like end-to-end slice, threat controls tested, operating cost measured.
+Exit: the control-plane trust boundary is deployable and verified. Event ingestion, normalization, detections, alerts, and incidents remain explicitly deferred. See `docs/phase-1-plan.md`.
 
-## Phase 2 — MVP capability
+## Phase 2 — First security-operations vertical slice
 
-Add source management, schema registry, rule staging, alert triage, search, signed webhooks, quotas, quarantine/dead letters, retention/deletion/export jobs, admin UI, and runbooks.
+Add one authenticated synthetic source through durable ingest, immutable raw retention, normalization, one deterministic detection, alert triage, and query. Then expand source management, schema registry, rule staging, signed webhooks, quotas, quarantine and dead letters, retention/deletion/export jobs, and the connected SOC UI.
 
-Exit: pilot readiness, load/resilience/security tests, restore exercise, privacy review.
+Exit: a production-like end-to-end slice proves tenant isolation, idempotency, durability, explainable detection, audit, and operational telemetry at a measured baseline.
 
-## Phase 3 — Controlled pilot
+## Phase 3 — MVP capability and controlled pilot
 
-Onboard selected tenants with synthetic-first validation, measure quality/cost, tune limits/SLOs, exercise incident response, close high risks, and produce SOC 2 readiness evidence.
+Broaden supported sources and SOC workflows, then onboard selected tenants with synthetic-first validation. Run load, resilience, restore, privacy, and security exercises; tune limits, cost, SLOs, and detections.
 
-Exit: agreed reliability, no unresolved critical/high security findings, support ownership established.
+Exit: agreed pilot reliability, no unresolved critical or high security findings, and established support ownership.
 
 ## Phase 4 — General availability
 
-Add justified regionalization, billing/entitlements, self-service onboarding, support tooling, progressive delivery, disaster recovery exercises, and public commitments.
+Add justified regionalization, billing and entitlements, self-service onboarding, support tooling, progressive delivery, disaster-recovery exercises, and evidence for public commitments.
 
 ## Decision gates
 
-1. Confirm product definition, personas, and MVP.
-2. Choose isolation tier and regulated-data commitments.
-3. Approve canonical schema v1 and rule-language constraints.
-4. Approve storage benchmarks/cost model and vendor ADRs.
-5. Approve pilot threat review, privacy assessment, SLOs, and incident readiness.
-
+1. Approve Phase 1 terminology, authentication architecture, tenancy boundary, and persistence ADRs.
+2. Verify Phase 1 authorization, isolation, refresh replay, audit, migration, and operations acceptance criteria.
+3. Approve Phase 2 canonical schema, raw-retention policy, durable transport, event store, rule constraints, workload, and cost model.
+4. Approve pilot threat review, privacy assessment, SLOs, restore evidence, and incident readiness.

@@ -29,4 +29,3 @@ These responsibilities apply to human or AI delivery agents. They define ownersh
 Contract changes to tenant identity, permissions, events, delivery/rule semantics, retention, or audit require an ADR, compatibility/migration plan, security review, and tests. Implementers do not self-approve security-boundary changes. Production release authority remains human-controlled.
 
 Hand-offs state what and why, affected interfaces, evidence, migration/rollback, security/privacy and observability impacts, remaining risks, and applicable requirement/ADR. Guesses are explicit.
-

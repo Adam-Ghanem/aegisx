@@ -26,4 +26,3 @@ Tests prove acknowledged-event durability; idempotency; wrong-tenant denial in e
 Ephemeral environments use isolated accounts and keys. Staging mirrors production topology at reduced scale. Migrations remain compatible during rolling deploys and have rollback or roll-forward plans. Progressive delivery begins with internal synthetic tenants.
 
 CI retains test, compatibility, migration, performance, and security reports. A flaky test may be quarantined only with an owner, issue, and deadline.
-

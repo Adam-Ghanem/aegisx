@@ -29,4 +29,3 @@ Requests freeze an authorized scope and create a job. Workers re-authorize syste
 - Alert creation: effectively once per `(tenant_id, rule_version_id, fingerprint, window)`.
 - Notification: at least once; payload carries a stable delivery ID.
 - Ordering: guaranteed only within a documented partition; event time and ingest time are distinct.
-

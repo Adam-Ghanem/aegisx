@@ -20,4 +20,3 @@ Likelihood (L) and impact (I) use 1–5; score is `L × I`. Owners are roles unt
 | R-14 | Small team cannot operate polyglot storage | 3 | 4 | 12 | Managed services, fewer products, readiness gate | Architecture + SRE |
 
 Review at phase gates and monthly during delivery. Scores 15–25 need a treatment plan before exposure. Accepted risks require sponsor/security sign-off, expiry, and rationale.
-

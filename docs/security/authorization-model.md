@@ -4,12 +4,14 @@
 
 AegisX uses RBAC for understandable tenant administration, augmented by relationship and resource-state checks. Authentication establishes a principal; membership selects a tenant; policy decides an action on a resource. Authentication alone never grants access.
 
+In Phase 1 terms, authentication establishes a `User`, organization membership establishes the administrative boundary, and a validated workspace selection establishes the operational boundary. `Principal` remains a future umbrella term for users and service accounts.
+
 ## Initial roles
 
 | Role | Representative permissions |
 |---|---|
-| Tenant Owner | Settings, membership, integrations, all analyst/admin functions |
-| Tenant Admin | Members except ownership transfer, sources, retention, integrations, rules |
+| Organization Owner | Settings, membership, integrations, all analyst/admin functions |
+| Organization Admin | Members except ownership transfer, sources, retention, integrations, rules |
 | Detection Engineer | Read events/alerts; create, validate, and promote rules per approval policy |
 | Analyst | Read events, triage alerts, manage cases, add notes |
 | Auditor | Read configuration, workflow, and audit history; no export by default |
@@ -27,4 +29,3 @@ Allow only when identity/session is valid; tenant and membership are active; req
 Operators have no standing access to tenant event content. Time-bound support access requires tenant approval where feasible, reason/ticket, step-up authentication, narrow scope, and full audit. Emergency break-glass is separately controlled and alerted.
 
 Audit records include principal, effective tenant, action, resource type/ID, policy version, decision/outcome, reason, request/trace ID, source network, and time. They exclude credentials and full sensitive payloads.
-

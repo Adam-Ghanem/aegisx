@@ -60,4 +60,3 @@ Patch versions clarify constraints; minor versions add optional fields/enums; ma
   "provenance": {"receipt_id": "receipt-example", "source_event_id": "abc", "source_schema": "vendor-v2", "mapper_version": "1.0.0", "payload_hash": "sha256:example", "normalization_warnings": []}
 }
 ```
-

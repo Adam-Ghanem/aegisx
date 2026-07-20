@@ -32,5 +32,4 @@ Retention is policy-driven by data class and tenant within platform bounds. A de
 - Reconciliation compares log offsets, event-store counts, and quarantine outcomes.
 - Capacity alerts cover partitions, lag, indexes, objects, and quotas.
 
-Phase 1 must benchmark representative writes/queries, isolation guarantees, cost, backup/restore, regional support, deletion behavior, and operational burden before vendor selection.
-
+Phase 1 validates PostgreSQL transactions, isolation, migrations, backup assumptions, and bounded Redis behavior for the control plane. Phase 2 must benchmark representative event writes and queries, cost, regional support, retention/deletion behavior, and operational burden before selecting event-log, analytics, or object-storage technologies.

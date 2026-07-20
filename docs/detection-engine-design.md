@@ -33,4 +33,3 @@ A version contains identity, tenant/managed ownership, schema compatibility, exp
 Static validation checks types, schema, unsafe constructs, cost, and compatibility. Fixtures cover positive, negative, boundary, late, duplicate, and missing-field cases. Staging is shadow-only. Activation is atomic and rollback selects an immutable prior version. Managed updates never overwrite tenant forks/suppressions.
 
 Metrics cover evaluation volume/latency, matches, alert yield, lag, state, timeouts, errors, lateness, suppression, and false-positive dispositions. Tenant IDs are not used as uncontrolled high-cardinality labels.
-

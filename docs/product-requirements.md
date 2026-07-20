@@ -12,9 +12,9 @@ AegisX enables organizations to ingest security telemetry, normalize it into a s
 - **Platform operator:** operate ingestion and detection safely without routine access to tenant event content.
 - **Auditor:** verify who changed access, rules, configuration, or alert state.
 
-## Phase 1 minimum viable product
+## Target product capabilities (Phase 2 and later)
 
-1. Create a tenant and invite users through an external identity provider.
+1. Create an organization with one or more workspaces and authorize users through first-party authentication; federation remains an extension point.
 2. Accept authenticated batch and streaming JSON events from tenant-scoped sources.
 3. Validate, normalize, deduplicate, enrich, and retain canonical events.
 4. Evaluate deterministic rules and create deduplicated alerts with evidence.
@@ -59,7 +59,6 @@ AegisX MUST minimize collected personal data, support configurable regional rete
 - A public rule marketplace and unmanaged plugins.
 - On-premises or air-gapped deployment.
 
-## Acceptance gate
+## Delivery boundary
 
-Phase 1 starts only after approval of the product assumption, tenant model, canonical schema, authorization semantics, and storage/detection technology decision records.
-
+Phase 1 implements only the secure control-plane foundation in `docs/phase-1-plan.md`. Event, detection, alert, incident, query, and notification requirements above are Phase 2 or later requirements and are not claims about Phase 1 behavior.

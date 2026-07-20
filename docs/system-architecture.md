@@ -4,6 +4,8 @@
 
 AegisX begins as a modular service architecture with independently scalable data-plane workers. The control plane handles identity, tenants, configuration, rules, alerts, and audit queries. The data plane handles high-volume ingestion, normalization, enrichment, detection, and notification. A durable event log separates acceptance from processing.
 
+Phase 1 is a modular monolith implementing only authentication, Organization/Workspace authorization, and the audit control-plane foundation. The data-plane components below are target architecture for Phase 2 and later, not implemented Phase 1 services.
+
 ## Logical components
 
 | Component | Responsibility | Trust level |
@@ -57,5 +59,4 @@ Initial production should use at least three availability zones where supported.
 
 ## Deferred decisions
 
-Concrete cloud, queue, relational database, search engine, and identity provider selections require architecture decision records (ADRs) in Phase 1. The logical contracts in these documents are intended to survive those choices.
-
+Phase 1 decisions for the modular monolith, tenancy, first-party authentication, PostgreSQL, Redis, and pipeline deferral are recorded under `docs/adr/`. Concrete cloud, queue, event/search store, object store, and federation provider decisions remain deferred. The logical contracts are intended to survive those choices.

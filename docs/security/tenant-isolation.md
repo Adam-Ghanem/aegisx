@@ -4,6 +4,8 @@
 
 Tenant isolation is a system invariant, not a UI convention. Every tenant-scoped request, message, row, index document, object key, cache entry, job, and audit record carries a validated `tenant_id`. Tenant context originates from authenticated identity or source credentials and MUST NOT be accepted from a conflicting client field.
 
+For implemented models, the tenant root is `Organization` and the operational boundary is `Workspace`; persisted ownership fields are `organization_id` and `workspace_id`. References to `tenant_id` below describe the generic Phase 2 data-plane contract and must be refined before that pipeline is implemented.
+
 ## Controls by layer
 
 | Layer | Required control |
@@ -34,4 +36,3 @@ Quotas cover ingest rate, bytes, query cost, concurrent exports, rules, detectio
 - Production canaries execute synthetic cross-tenant denials.
 
 Any confirmed cross-tenant disclosure or action is a security incident and release blocker.
-

@@ -22,4 +22,3 @@ Telemetry access is least privilege and environment-separated. Debug elevation i
 ## Dashboards and runbooks
 
 Initial dashboards cover ingest, processing lag, detection, API/query health, notifications, storage/capacity, quota pressure, and security/audit health. Every page links to an owned runbook with diagnosis, safe mitigation, escalation, and verification.
-
