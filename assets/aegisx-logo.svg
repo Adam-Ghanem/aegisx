@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">AegisX logo</title>
+  <desc id="desc">A red shield and X emblem beside the AegisX wordmark.</desc>
+  <defs>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff3344"/>
+      <stop offset="0.52" stop-color="#ed111f"/>
+      <stop offset="1" stop-color="#a90012"/>
+    </linearGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22262d"/>
+      <stop offset="1" stop-color="#080a0d"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#120006" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(34 24)" fill="none" stroke="url(#red)" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
+    <path d="M232 30 C302 30 372 62 420 83 C442 93 454 112 453 135 C450 196 404 247 351 292 L244 389 C231 401 211 401 198 389 L90 292 C38 247 -8 196 -11 135 C-12 112 0 93 22 83 C71 62 141 30 211 30 Z" stroke-width="30"/>
+    <path d="M17 173 C18 237 55 289 103 331 L198 417 C211 429 231 429 244 417 L340 331 C388 289 425 237 426 173" stroke-width="30"/>
+    <path d="M89 150 L351 381" stroke-width="27"/>
+    <path d="M351 150 L89 381" stroke-width="27"/>
+  </g>
+
+  <g transform="translate(500 0)">
+    <text x="0" y="330" fill="url(#ink)" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="180" font-weight="650" letter-spacing="-9">Aegis</text>
+    <text x="492" y="330" fill="url(#red)" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="180" font-weight="720" letter-spacing="-8">X</text>
+  </g>
+</svg>
