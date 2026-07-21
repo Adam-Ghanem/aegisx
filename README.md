@@ -1,6 +1,6 @@
 <div align="center">
 
-# AegisX
+<img src="assets/aegisx-logo.svg" alt="AegisX" width="360">
 
 **Tenant-isolated security operations infrastructure, built from the trust boundary outward.**
 
