@@ -1,31 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" role="img" aria-labelledby="title desc">
   <title id="title">AegisX official logo</title>
-  <desc id="desc">Glossy red shield and X emblem with the AegisX wordmark on a transparent background.</desc>
+  <desc id="desc">Glossy red AegisX shield emblem and wordmark on a black background.</desc>
   <defs>
-    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ff3b42"/>
-      <stop offset="0.38" stop-color="#ff151d"/>
-      <stop offset="0.72" stop-color="#e00614"/>
-      <stop offset="1" stop-color="#9b000c"/>
+    <linearGradient id="red" x1="0" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#ff252d"/>
+      <stop offset="0.45" stop-color="#ff0711"/>
+      <stop offset="0.78" stop-color="#d9000c"/>
+      <stop offset="1" stop-color="#8b0008"/>
     </linearGradient>
     <linearGradient id="ink" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#2b2d32"/>
-      <stop offset="1" stop-color="#0d0f12"/>
+      <stop offset="0" stop-color="#292929"/>
+      <stop offset="0.55" stop-color="#181818"/>
+      <stop offset="1" stop-color="#080808"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
-      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#370006" flood-opacity="0.35"/>
+    <filter id="redGlow" x="-25%" y="-25%" width="150%" height="165%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur"/>
+      <feOffset dy="8" result="offset"/>
+      <feColorMatrix in="offset" type="matrix" values="0.45 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.7 0" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textShadow" x="-15%" y="-20%" width="130%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#000" flood-opacity="0.8"/>
     </filter>
   </defs>
 
-  <g fill="none" stroke="url(#red)" stroke-linecap="round" stroke-linejoin="round" filter="url(#shadow)">
-    <path d="M362 168 L545 98 Q600 78 655 98 L838 168 Q892 188 900 244 Q908 300 865 349 L654 560 Q630 584 600 584 Q570 584 546 560 L335 349 Q292 300 300 244 Q308 188 362 168 Z" stroke-width="38"/>
-    <path d="M302 380 Q304 520 389 638 L535 816 Q562 848 600 848 Q638 848 665 816 L811 638 Q896 520 898 380" stroke-width="38"/>
-    <path d="M378 310 L822 704" stroke-width="32"/>
-    <path d="M822 310 L378 704" stroke-width="32"/>
+  <rect width="1200" height="1200" fill="#000"/>
+
+  <g fill="none" stroke="url(#red)" stroke-linecap="round" stroke-linejoin="round" filter="url(#redGlow)">
+    <path d="M392 270 Q398 221 452 200 L572 155 Q600 145 628 155 L748 200 Q802 221 808 270 Q814 317 779 354 L625 514 Q600 540 575 514 L421 354 Q386 317 392 270 Z" stroke-width="34"/>
+    <path d="M397 389 Q402 504 456 591 Q488 642 531 690 L568 733 Q600 769 632 733 L669 690 Q712 642 744 591 Q798 504 803 389" stroke-width="32"/>
+    <path d="M401 389 Q430 508 514 610 L630 735" stroke-width="28"/>
+    <path d="M799 389 Q770 508 686 610 L570 735" stroke-width="28"/>
+    <path d="M428 363 L729 649" stroke-width="32"/>
+    <path d="M772 363 L471 649" stroke-width="32"/>
   </g>
 
-  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-weight="700" letter-spacing="-12">
-    <text x="146" y="1045" fill="url(#ink)" font-size="190">Aegis</text>
-    <text x="866" y="1045" fill="url(#red)" font-size="190">X</text>
+  <g font-family="Arial, Helvetica, sans-serif" font-weight="700" filter="url(#textShadow)">
+    <text x="204" y="936" fill="url(#ink)" font-size="171" letter-spacing="-10">Aegis</text>
+    <text x="824" y="936" fill="url(#red)" font-size="171" letter-spacing="-9">X</text>
   </g>
 </svg>
